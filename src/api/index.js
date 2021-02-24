@@ -10,4 +10,8 @@ const requestLogin = ({ userAccount, password }) => {
         }
     })
 }
-export { requestLogin }
+// 获取左侧导航菜单
+const requestLeftMenus = () => {
+    return $http("/menus")
+}
+export { requestLogin, requestLeftMenus }
