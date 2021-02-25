@@ -11,7 +11,7 @@
         <el-aside width="200px">
           <el-menu background-color="#333744" text-color="#fff" unique-opened router :default-active="activePath">
             <el-submenu :index="'/'+menu.path" v-for="menu in leftMenus" :key="menu.id">
-              <template slot="title"><i class="el-icon-user-solid"></i>{{menu.authName}}</template>
+              <template slot="title"><i :class="menusIcon[menu.id]"></i>{{menu.authName}}</template>
               <el-menu-item :index="'/'+menuchild.path" v-for="menuchild in menu.children" :key="menuchild.id" @click="handleMenu('/'+menuchild.path)">{{menuchild.authName}}</el-menu-item>
             </el-submenu>
           </el-menu>
@@ -30,17 +30,22 @@ export default {
   data() {
     return {
       // 当前导航菜单激活状态
-      activePath: ""
+      activePath: "",
+      // 菜单栏icon
+      menusIcon: {
+        '125': 'el-icon-user-solid',
+        '103': 'el-icon-s-opportunity',
+        '101': 'el-icon-s-goods',
+        '102': 'el-icon-s-order',
+        '145': 'el-icon-s-data'
+      }
     }
   },
   mounted() {
     this.$store.dispatch("getLeftMenus"),
       // 页面刷新时
-      this.activePath = window.sessionStorage.getItem("activePath")
-      console.log(this.activePath);
-    // window.addEventListener('unload', () => {
-    //   sessionStorage.setItem("activePath", this.activePath)
-    // })
+      this.activePath = window.sessionStorage.getItem("activePath") || "/users"
+
   },
   methods: {
     handleOutLogin() {

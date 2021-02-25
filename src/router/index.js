@@ -14,47 +14,48 @@ const routes = [
   {
     path: "/home",
     name: "Home",
+    redirect: "/users",
     component: () => import("@/views/Home.vue"),
-    children:[
+    children: [
       {
         path: "/users",
         name: "Users",
-        component: ()=>import("@/views/Users/Users.vue")
+        component: () => import("@/views/Users/Users.vue")
       },
       {
         path: "/roles",
         name: "Roles",
-        component: ()=>import("@/views/Rights/Roles.vue")
+        component: () => import("@/views/Rights/Roles.vue")
       },
       {
         path: "/rights",
         name: "Rights",
-        component: ()=>import("@/views/Rights/Rights.vue")
+        component: () => import("@/views/Rights/Rights.vue")
       },
       {
         path: "/goods",
         name: "Goods",
-        component: ()=>import("@/views/Goods/Goods.vue")
+        component: () => import("@/views/Goods/Goods.vue")
       },
       {
         path: "/params",
         name: "Params",
-        component: ()=>import("@/views/Goods/Params.vue")
+        component: () => import("@/views/Goods/Params.vue")
       },
       {
         path: "/categories",
         name: "Categories",
-        component: ()=>import("@/views/Goods/Categories.vue")
+        component: () => import("@/views/Goods/Categories.vue")
       },
       {
         path: "/orders",
         name: "Orders",
-        component: ()=>import("@/views/Orders/Orders.vue")
+        component: () => import("@/views/Orders/Orders.vue")
       },
       {
         path: "/reports",
         name: "Reports",
-        component: ()=>import("@/views/Reports/Reports.vue")
+        component: () => import("@/views/Reports/Reports.vue")
       },
     ]
   },
