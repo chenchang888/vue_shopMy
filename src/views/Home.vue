@@ -53,7 +53,6 @@ export default {
       sessionStorage.clear("token")
     },
     handleMenu(path) {
-      console.log(path);
       window.sessionStorage.setItem('activePath', path)
       this.activePath = path
     }
