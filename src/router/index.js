@@ -14,7 +14,49 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: () => import("@/views/Home.vue")
+    component: () => import("@/views/Home.vue"),
+    children:[
+      {
+        path: "/users",
+        name: "Users",
+        component: ()=>import("@/views/Users/Users.vue")
+      },
+      {
+        path: "/roles",
+        name: "Roles",
+        component: ()=>import("@/views/Rights/Roles.vue")
+      },
+      {
+        path: "/rights",
+        name: "Rights",
+        component: ()=>import("@/views/Rights/Rights.vue")
+      },
+      {
+        path: "/goods",
+        name: "Goods",
+        component: ()=>import("@/views/Goods/Goods.vue")
+      },
+      {
+        path: "/params",
+        name: "Params",
+        component: ()=>import("@/views/Goods/Params.vue")
+      },
+      {
+        path: "/categories",
+        name: "Categories",
+        component: ()=>import("@/views/Goods/Categories.vue")
+      },
+      {
+        path: "/orders",
+        name: "Orders",
+        component: ()=>import("@/views/Orders/Orders.vue")
+      },
+      {
+        path: "/reports",
+        name: "Reports",
+        component: ()=>import("@/views/Reports/Reports.vue")
+      },
+    ]
   },
 ];
 
