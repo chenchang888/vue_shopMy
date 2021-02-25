@@ -9,45 +9,56 @@
       </el-header>
       <el-container>
         <el-aside width="200px">
-          <el-menu :default-openeds="[]" background-color="#333744" text-color="#fff" active-text-color="" default-active="2-1">
-            <el-submenu index="1">
-              <template slot="title"><i class="el-icon-user-solid"></i>用户管理</template>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-            </el-submenu>
-            <el-submenu index="2">
-              <template slot="title"><i class="el-icon-s-opportunity"></i>权限管理</template>
-              <el-menu-item index="2-1">选项2</el-menu-item>
-            </el-submenu>
-            <el-submenu index="3">
-              <template slot="title"><i class="el-icon-s-goods"></i>商品管理</template>
-              <el-menu-item index="3-1">选项2</el-menu-item>
-            </el-submenu>
-            <el-submenu index="4">
-              <template slot="title"><i class="el-icon-s-order"></i>订单管理</template>
-              <el-menu-item index="4-1">选项2</el-menu-item>
-            </el-submenu>
-            <el-submenu index="5">
-              <template slot="title"><i class="el-icon-s-data"></i>数据统计</template>
-              <el-menu-item index="5-1">选项2</el-menu-item>
+          <el-menu background-color="#333744" text-color="#fff" unique-opened router :default-active="activePath">
+            <el-submenu :index="'/'+menu.path" v-for="menu in leftMenus" :key="menu.id">
+              <template slot="title"><i class="el-icon-user-solid"></i>{{menu.authName}}</template>
+              <el-menu-item :index="'/'+menuchild.path" v-for="menuchild in menu.children" :key="menuchild.id" @click="handleMenu('/'+menuchild.path)">{{menuchild.authName}}</el-menu-item>
             </el-submenu>
           </el-menu>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex"
 export default {
+  data() {
+    return {
+      // 当前导航菜单激活状态
+      activePath: ""
+    }
+  },
   mounted() {
-    
+    this.$store.dispatch("getLeftMenus"),
+      // 页面刷新时
+      this.activePath = window.sessionStorage.getItem("activePath")
+      console.log(this.activePath);
+    // window.addEventListener('unload', () => {
+    //   sessionStorage.setItem("activePath", this.activePath)
+    // })
   },
   methods: {
     handleOutLogin() {
       this.$router.push("/login")
       sessionStorage.clear("token")
+    },
+    handleMenu(path) {
+      console.log(path);
+      window.sessionStorage.setItem('activePath', path)
+      this.activePath = path
     }
+  },
+  computed: {
+    ...mapState({
+      leftMenus: (state) => {
+        return state.leftMenus
+      }
+    })
   }
 }
 </script>
