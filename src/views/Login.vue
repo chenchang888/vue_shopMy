@@ -34,7 +34,6 @@ export default {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           const res = await requestLogin(this.loginRuleForm)
-          console.log(res);
           if (res.data.meta.status === 200) {
             const token = res.data.data.token
             sessionStorage.setItem('token', token)
