@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Option, Select, Dialog, MessageBox, Loading, Switch, Pagination, TableColumn, Table, Card, BreadcrumbItem, Breadcrumb, Button, Form, FormItem, Input, Message, Container, Header, Aside, Main, Menu, Submenu, MenuItemGroup, MenuItem } from "element-ui";
+import { Divider, Col, Tag, Row, Option, Select, Dialog, MessageBox, Loading, Switch, Pagination, TableColumn, Table, Card, BreadcrumbItem, Breadcrumb, Button, Form, FormItem, Input, Message, Container, Header, Aside, Main, Menu, Submenu, MenuItemGroup, MenuItem } from "element-ui";
 Vue.use(Button);
 Vue.use(Form);
 Vue.use(FormItem);
@@ -22,6 +22,10 @@ Vue.use(Switch);
 Vue.use(Dialog);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Row);
+Vue.use(Tag);
+Vue.use(Col);
+Vue.use(Divider);
 Vue.prototype.$message = Message;
 Vue.prototype.$loading = Loading;
 Vue.prototype.$confirm = MessageBox.confirm;
