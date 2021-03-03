@@ -1,4 +1,6 @@
 const GETLEFTMENUS = "getleftmenus"
+const GETRIGHTSLIST = "getrightslist"
 export {
-    GETLEFTMENUS
+    GETLEFTMENUS,
+    GETRIGHTSLIST
 }

@@ -14,4 +14,7 @@ const requestLogin = ({ userAccount, password }) => {
 const requestLeftMenus = () => {
     return $http("/menus")
 }
-export { requestLogin, requestLeftMenus }
+// 获取权限列表
+const requestRightsList = () => $http("/rights/list")
+
+export { requestLogin, requestLeftMenus, requestRightsList  }
