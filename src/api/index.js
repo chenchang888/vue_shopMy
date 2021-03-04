@@ -48,9 +48,25 @@ const requestUserSetting = ({ id, rid }) => $http({
         rid
     }
 })
-
+// 权限列表
+const requestPowersList = (type) => $http(`rights/${type}`)
+// 删除角色指定权限
+const requestDeleteRolePower = (roleId, rightId) => $http.delete(`roles/${roleId}/rights/${rightId}`)
+// 删除角色
+const requestDeleteRole = (id) => $http(`roles/${id}`)
+// 角色权限设置
+const requestUserSetPower = ({ roleId, rids }) => {
+    return $http({
+        url: `roles/${roleId}/rights`,
+        method: "POST",
+        data: {
+            rids
+        }
+    })
+}
 
 export {
     requestLogin, requestLeftMenus, requestUsersList, requestChangeStatus, requestSetUserInfo, requestAddUser,
-    requestDeleteUser, requestRolesList, requestUserSetting
+    requestDeleteUser, requestRolesList, requestUserSetting, requestDeleteRolePower, requestDeleteRole, requestPowersList,
+    requestUserSetPower
 }

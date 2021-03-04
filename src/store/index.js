@@ -5,6 +5,7 @@ import mutations from "./mutations"
 import actions from "./actions"
 import getters from "./getters"
 import users from "./modules/users"
+import roles from "./modules/roles"
 
 Vue.use(Vuex);
 const Store = new Vuex.Store({
@@ -13,7 +14,8 @@ const Store = new Vuex.Store({
   actions,
   getters,
   modules: {
-    users
+    users,
+    roles
   }
 });
 export default Store;
