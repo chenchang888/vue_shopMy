@@ -9,19 +9,6 @@
       <el-button type="primary">添加角色</el-button>
       <el-table :data="tableData" border style="width: 100%">
         <el-table-column type="expand">
-<<<<<<< HEAD
-          <template slot-scope="props">
-            <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="商品描述">
-                <span>{{ props.row.desc }}</span>
-              </el-form-item>
-            </el-form>
-          </template>
-        </el-table-column>
-        <el-table-column label="角色名称" prop="id">
-        </el-table-column>
-        <el-table-column label="角色描述" prop="name">
-=======
           <template v-slot="scop">
             <el-row v-for="item in scop.row.children" :key="item.id">
               <el-col :span="3">
@@ -43,7 +30,6 @@
         <el-table-column label="角色名称" prop="roleName">
         </el-table-column>
         <el-table-column label="角色描述" prop="roleDesc">
->>>>>>> users
         </el-table-column>
         <el-table-column label="操作" prop="desc">
         </el-table-column>
@@ -57,11 +43,6 @@ import { mapState } from "vuex"
 export default {
   data() {
     return {
-<<<<<<< HEAD
-      tableData: {}
-    }
-  },
-=======
       tableData: []
     }
   },
@@ -80,7 +61,6 @@ export default {
       rolesList: state => state.rolesList
     })
   }
->>>>>>> users
 }
 </script>
 
@@ -90,8 +70,6 @@ export default {
     margin-top: 20px;
   }
 }
-<<<<<<< HEAD
-=======
 .el-table{
   margin-top: 20px;
 }
@@ -105,5 +83,4 @@ export default {
 .el-tag{
   margin-right: 10px;
 }
->>>>>>> users
 </style>
