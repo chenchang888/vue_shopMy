@@ -64,9 +64,11 @@ const requestUserSetPower = ({ roleId, rids }) => {
         }
     })
 }
+// 获取权限列表
+const requestRightsList = () => $http("/rights/list")
 
 export {
     requestLogin, requestLeftMenus, requestUsersList, requestChangeStatus, requestSetUserInfo, requestAddUser,
     requestDeleteUser, requestRolesList, requestUserSetting, requestDeleteRolePower, requestDeleteRole, requestPowersList,
-    requestUserSetPower
+    requestUserSetPower, requestRightsList
 }
