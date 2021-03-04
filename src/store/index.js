@@ -6,6 +6,7 @@ import actions from "./actions"
 import getters from "./getters"
 import users from "./modules/users"
 import roles from "./modules/roles"
+import rights from "./modules/rights"
 
 Vue.use(Vuex);
 const Store = new Vuex.Store({
@@ -15,7 +16,8 @@ const Store = new Vuex.Store({
   getters,
   modules: {
     users,
-    roles
+    roles,
+    rights
   }
 });
 export default Store;
