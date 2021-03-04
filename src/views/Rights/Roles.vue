@@ -40,8 +40,6 @@
         </el-table-column>
       </el-table>
     </el-card>
-<<<<<<< HEAD
-=======
     <!-- 对话框 -->
     <el-dialog v-if="treeShow" title="分配权限" :close-on-click-modal="false" :visible.sync="dialogVisible" width="30%" @close="handleCloseDialog">
       <el-tree v-if="treeShow" :data="powersList" show-checkbox node-key="id" ref="tree" default-expand-all :default-checked-keys="checkedKeys" :props="defaultProps">
@@ -51,7 +49,6 @@
         <el-button type="primary" @click="handleTreeMesSubmit">确 定</el-button>
       </span>
     </el-dialog>
->>>>>>> roles
   </div>
 </template>
 
