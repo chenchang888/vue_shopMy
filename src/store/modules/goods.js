@@ -26,6 +26,7 @@ export default {
         // 获取商品分类数据列表
         async getGoodsClassify({ commit }, getClassify) {
             const res = await requestGoodsClassify()
+            console.log(res);
             if (res.data.meta.status === 200) {
                 commit(GETGOODSCLASSIFY, res.data.data)
                 getClassify && getClassify()
