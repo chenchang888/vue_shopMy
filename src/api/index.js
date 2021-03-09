@@ -67,8 +67,40 @@ const requestUserSetPower = ({ roleId, rids }) => {
 // 获取权限列表
 const requestRightsList = () => $http("/rights/list")
 
+// 获取商品列表
+const requestGoosData = ({ query, pagenum, pagesize }) => $http({
+    url: "/goods",
+    params: {
+        query,
+        pagenum,
+        pagesize
+    }
+})
+
+// 商品分类数据列表
+const requestGoodsClassify = () => $http({
+    url: "/categories",
+    params: {
+        type: '',
+        pagenum: '',
+        pagesize: ''
+    }
+})
+// 获取商品参数列表
+const requestGoodsParameter = ({ id, sel }) => $http({
+    url: `categories/${id}/attributes`,
+    params: {
+        sel
+    }
+})
+// 添加商品提交
+const requestGoodsSubmit = (data) => $http({
+    url: "/goods",
+    method: "POST",
+    data
+})
 export {
     requestLogin, requestLeftMenus, requestUsersList, requestChangeStatus, requestSetUserInfo, requestAddUser,
     requestDeleteUser, requestRolesList, requestUserSetting, requestDeleteRolePower, requestDeleteRole, requestPowersList,
-    requestUserSetPower, requestRightsList
+    requestUserSetPower, requestRightsList, requestGoosData, requestGoodsClassify, requestGoodsParameter, requestGoodsSubmit
 }

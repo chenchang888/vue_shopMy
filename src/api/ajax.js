@@ -19,7 +19,8 @@ instance.interceptors.response.use(function (response) {
     return response;
 }, function (error) {
     // 对响应错误做点什么
-    console.log(error);
+    window.$message.error("请求错误")
+    console.log(error.message);
     return new Promise(() => { });
 });
 export default instance
