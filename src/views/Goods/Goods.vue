@@ -17,7 +17,7 @@
       <el-table :data="goods.goods" border style="width: 100%">
         <el-table-column type="index" label="#" width="50">
         </el-table-column>
-        <el-table-column prop="goods_name" label="商品名称" width="1000">
+        <el-table-column prop="goods_name" label="商品名称" width="700">
         </el-table-column>
         <el-table-column prop="goods_price" label="商品价格（元）">
         </el-table-column>
