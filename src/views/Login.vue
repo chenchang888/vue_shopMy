@@ -39,6 +39,8 @@ export default {
             const token = res.data.data.token
             sessionStorage.setItem('token', token)
             this.$router.push("/home")
+          }else{
+            this.$message.error("账号或密码错误")
           }
         } else {
           this.$message({
